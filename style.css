@@ -3,5 +3,73 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
+.logo{
+  flex: 1;
+}
+.header{
+    width: 100%;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+     display: flex;
+     gap: 100px;
+     align-items: center;
+     justify-content: space-between;
+     position: fixed;
+     top: 0px;
+     left: 0px;
+}
 
+.nav-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    gap: 20px;
+    
+}
+.nav-list a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: green;
+    padding: 8px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 0px black;
+}
+.button{
+    padding: 8px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 0px black;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+}
 
+.section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+article h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: black;
+}
+
+.projects{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
