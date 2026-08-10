@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .parent{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-areas:  'header header header'
+                             'sidebar main aside'
+                             'footer footer footer';
+         grid-template-columns:  200px 1fr 200px;  
+         grid-template-rows: 70px 1fr 70px;
+                       
+        border: 2px solid black;
+    }
+    .child1{
+        background-color: red;
+        grid-area: header;
+         text-align: center;
+         place-content: center;
+    }
+    .child2{
+        background-color: green;
+         place-content: center;
+         grid-area: sidebar;
+         text-align: center;
+    }
+    .child3{
+        background-color: blue;
+         place-content: center;
+         grid-area: main;
+         text-align: center;
+    }
+    .child4{
+        background-color: yellow;
+         place-content: center;
+         grid-area: aside;
+         text-align: center;
+    }
+    .child5{
+        background-color: black;
+    color: white;
+         place-content: center;
+         grid-area: footer;
+         text-align: center;
+    }
+   
+    
+</style>
+<body>
+     <div class="parent">
+        <div class="child1">Header</div>
+        <div class="child2">Sidebar</div>
+        <div class="child3">Main</div>
+        <div class="child4">Aside</div>
+        <div class="child5">Foooter</div>
+    
+       
+   
+     </div>
+</body>
+</html>
