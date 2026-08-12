@@ -1,32 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-        <table border="1" border-collapse="collapse">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Address</th>
-            </tr>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Table</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    caption {
+      text-align: left;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 20px 24px 4px;
+      color: #1f2937;
+    }
+
+    thead th {
+      background-color: #1e293b;
+      color: #ffffff;
+      text-align: left;
+      padding: 14px 20px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+    }
+
+    tbody td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+      font-size: 0.95rem;
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    tbody tr:hover {
+      background-color: #eef2ff;
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    td.id-col {
+      color: #9ca3af;
+      font-weight: 600;
+      width: 40px;
+    }
+
+    td.name-col {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    td.price-col {
+      font-weight: 600;
+      color: #111827;
+      text-align: right;
+    }
+
+    img.product-img {
+      width: 90px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      display: block;
+      background-color: #f3f4f6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge.available {
+      background-color: #dcfce7;
+      color: #15803d;
+    }
+
+    .badge.unavailable {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    @media (max-width: 640px) {
+      thead th,
+      tbody td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+
+      img.product-img {
+        width: 60px;
+        height: 40px;
+      }
+    }
+  </style>
+  <body>
+    <div class="table-wrapper">
+      <table>
+        <caption>Product Inventory</caption>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Akil</td>
-                <td>26</td>
-                <td>Kathmandu</td>
-            </tr>
-            <tr>
-                <td>Akil</td>
-                <td>26</td>
-                <td>Kathmandu</td>
-            </tr>
+          <tr>
+            <td class="id-col">1</td>
+            <td class="name-col">Shoes</td>
+            <td>
+              <img
+                class="product-img"
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
+                alt="Shoes Image"
+              />
+            </td>
+            <td class="price-col">Rs. 1000</td>
+            <td><span class="badge available">Available</span></td>
+          </tr>
+          <tr>
+            <td class="id-col">2</td>
+            <td class="name-col">Shirt</td>
+            <td><img class="product-img" src="" alt="Shirt Image" /></td>
+            <td class="price-col">Rs. 500</td>
+            <td><span class="badge available">Available</span></td>
+          </tr>
+          <tr>
+            <td class="id-col">3</td>
+            <td class="name-col">Jeans</td>
+            <td><img class="product-img" src="" alt="Jeans Image" /></td>
+            <td class="price-col">Rs. 1500</td>
+            <td><span class="badge unavailable">Not Available</span></td>
+          </tr>
         </tbody>
-        </table> 
-
-</body>
+      </table>
+    </div>
+  </body>
 </html>
