@@ -3,125 +3,349 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  
+    <title>Registration Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f1f4f9;
+        color: #1f2937;
+      }
+
+      form {
+        display: flex;
+        justify-content: center;
+        padding: 40px 16px;
+      }
+
+      fieldset {
+        width: 100%;
+        max-width: 640px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 32px 40px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      legend {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #111827;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #374151;
+        margin: 28px 0 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .section-title:first-of-type {
+        margin-top: 0;
+      }
+
+      .field {
+        margin-bottom: 18px;
+      }
+
+      label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 6px;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        font-size: 0.95rem;
+        font-family: inherit;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #1f2937;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      input:hover,
+      textarea:hover,
+      select:hover {
+        border-color: #94a3b8;
+      }
+
+      .option-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 24px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .option label {
+        margin: 0;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+
+      input[type="color"] {
+        width: 60px;
+        height: 38px;
+        padding: 4px;
+        cursor: pointer;
+      }
+
+      input[type="range"] {
+        padding: 0;
+        border: none;
+        accent-color: #2563eb;
+      }
+
+      input[type="file"] {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .hint {
+        font-size: 0.78rem;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      button {
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 10px 22px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: background-color 0.15s ease, transform 0.05s ease;
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      button[type="submit"] {
+        background-color: #2563eb;
+        color: #fff;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #1d4ed8;
+      }
+
+      button[type="reset"] {
+        background-color: #fff;
+        color: #374151;
+        border-color: #cbd5e1;
+      }
+
+      button[type="reset"]:hover {
+        background-color: #f3f4f6;
+      }
+    </style>
   </head>
-  <style>
-    
-  </style>
+
   <body>
-    <form>
-        <fieldset>
-            <legend>Registration Form</legend>
-      <!-- Name -->
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-      <br /><br />
+    <form novalidate>
+      <fieldset>
+        <legend>Registration Form</legend>
 
-      <!-- Email -->
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-      <br /><br />
+        <div class="section-title">Personal Information</div>
 
-      <!-- Age -->
-      <label for="age">Age:</label>
-      <input type="number" id="age" name="age" required />
-      <br /><br />
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            minlength="3"
+            maxlength="20"
+            placeholder="Enter your full name"
+          />
+        </div>
 
-      <!-- Phone Number -->
-      <label for="phone">Phone Number:</label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-        required
-      />
-      <br /><br />
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="name@example.com"
+          />
+        </div>
 
-      <!-- Password -->
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-      <br /><br />
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="1" max="100" />
+        </div>
 
-      <!-- Date of Birth -->
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+            placeholder="0000-000-000"
+          />
+        </div>
 
-      <label for="date">Date of Birth:</label>
-      <input type="date" id="date" name="date" required />
-      <br /><br />
+        <div class="field">
+          <label for="date">Date of Birth</label>
+          <input type="date" id="date" name="date" />
+        </div>
 
-      <!-- Gender -->
-      <h4>Gender:</h4>
-      <input type="radio" id="male" name="gender" value="male" required />
-      <label for="male">Male</label>
-      <input type="radio" id="female" name="gender" value="female" required />
-      <label for="female">Female</label>
-      <input type="radio" id="other" name="gender" value="other" required />
-      <label for="other">Other</label>
-      <br /><br />
+        <div class="section-title">Account Details</div>
 
-      <!-- Address -->
-      <label for="address">Address:</label>
-      <textarea id="address" name="address" required></textarea>
-      <br /><br />
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+        </div>
 
-      <!-- Hobbies -->
-      <label for="hobby">Hobbies:</label>
-      <input type="checkbox" id="reading" name="hobby" value="reading" />
-      <label for="reading">Reading</label>
-      <input type="checkbox" id="traveling" name="hobby" value="traveling" />
-      <label for="traveling">Traveling</label>
-      <input type="checkbox" id="sports" name="hobby" value="Coding" />
-      <label for="sports">Coding</label>
-      <br /><br />
+        <div class="section-title">Address</div>
 
-      <!-- Upload CV -->
-      <label for="file">Upload CV:</label>
-      <input type="file" id="file" name="file" />
-      <br /><br />
+        <div class="field">
+          <label for="address">Address</label>
+          <textarea id="address" name="address"></textarea>
+        </div>
 
-      <!-- Country -->
-      <label for="country">Country:</label>
-      <select id="country" name="country" required>
-        <option value="">Select a country</option>
-        <option value="nepal">Nepal</option>
-        <option value="india">India</option>
-        <option value="usa">USA</option>
-        <option value="uk">UK</option>
-      </select>
-      <br /><br />
+        <div class="field">
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Select a country</option>
+            <option value="nepal">Nepal</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+          </select>
+        </div>
 
-      <!-- Favorite Color -->
-      <label for="color">Favorite Color:</label>
-      <input type="color" id="color" name="color" required />
-      <br /><br />
+        <div class="section-title">Preferences</div>
 
-      <!-- Range -->
-      <label for="range">Select a range:</label>
-      <input
-        type="range"
-        id="range"
-        name="range"
-        value="10"
-        min="0"
-        max="100"
-        required
-      />
-      <br /><br />
+        <div class="field">
+          <label>Gender</label>
+          <div class="option-group">
+            <div class="option">
+              <input type="radio" id="male" name="gender" value="male" />
+              <label for="male">Male</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="other" name="gender" value="other" />
+              <label for="other">Other</label>
+            </div>
+          </div>
+        </div>
 
-      <!-- Button -->
-      <button type="reset">Reset</button>
-      <button type="submit">Submit</button>
+        <div class="field">
+          <label>Hobbies</label>
+          <div class="option-group">
+            <div class="option">
+              <input
+                type="checkbox"
+                id="reading"
+                name="hobby"
+                value="reading"
+              />
+              <label for="reading">Reading</label>
+            </div>
+            <div class="option">
+              <input
+                type="checkbox"
+                id="traveling"
+                name="hobby"
+                value="traveling"
+              />
+              <label for="traveling">Traveling</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" id="sports" name="hobby" value="Coding" />
+              <label for="sports">Coding</label>
+            </div>
+          </div>
+        </div>
 
+        <div class="field">
+          <label for="color">Favorite Color</label>
+          <input type="color" id="color" name="color" value="#2563eb" />
+        </div>
+
+        <div class="field">
+          <label for="range">Experience Level</label>
+          <input
+            type="range"
+            id="range"
+            name="range"
+            value="10"
+            min="0"
+            max="100"
+          />
+        </div>
+
+        <div class="field">
+          <label for="file">Upload CV</label>
+          <input type="file" id="file" name="file" />
+          <div class="hint">PDF or DOCX, up to 5MB</div>
+        </div>
+
+        <div class="actions">
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+        </div>
       </fieldset>
     </form>
-
-    <audio controls>
-        <source src="audio.mp3" type="audio/mpeg" />
-    </audio>
-    <video controls autoplay muted loop>
-        <source src="https://youtu.be/q-_ezD9Swz4" type="video/mp4" />
-    </video>
-    <iframe width="1337" height="752" src="https://www.youtube.com/embed/q-_ezD9Swz4" title="Learn To Code Like a GENIUS and Not Waste Time" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </body>
 </html>
