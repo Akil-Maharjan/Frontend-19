@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<style>
+    .animate__heartBeat{
+       width: 200px;
+       height: 200px;
+       border-radius: 20px;
+       background-color: white;
+       border: 2px solid black;
+        
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        border-radius: 50%;
+        animation: colorChange 2s infinite ease-in-out;
+    }
+    @keyframes rotateOrbit {
+        0%{
+          transform: rotate(0deg) translateX(250px) rotate(0deg);
+        }
+        100%{
+          transform: rotate(360deg) translateX(250px) rotate(-360deg);
+        }
+    }
+    @keyframes colorChange {
+        0%{
+          background-color: red;
+        }
+        25%{
+          background-color: green;
+        }
+        50%{
+          background-color: blue;
+        }
+        75%{
+          background-color: yellow;
+        }
+        100%{
+          background-color: red;
+        }
+    }
+    
+    /* Flip Animation: Rotates the element 360 degrees along the Y-axis, ideal for flipping cards or icons. */
+    @keyframes flip {
+      0% { transform: perspective(400px) rotateY(0); }
+      100% { transform: perspective(400px) rotateY(360deg); }
+    }
+    .flip {
+      animation: flip 1s linear infinite;
+    }
+     
+    
+
+</style>
+<body>
+    
+     <div class="animate__animated animate__heartBeat animate__infinite">
+        <div class="box"></div> 
+        
+     </div>
+</body>
+</html>
