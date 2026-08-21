@@ -1,212 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>My portfolio</title>
-</head>
-<body>
-      <main>
-        <!-- header -->
-        <header class="header">
-          <div class="logo">
-         
-             <img src="images/Portfolio.png" alt="portfolio image" />
-          </div>
-          <nav class="nav">
-            <ul class="nav-list">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <div class="buttons">
-            <button class="login button">Login</button>
-            <button class="download button">Downlaod CV</button>
-          </div>
-        </header>
-         
-
-        <!-- home -->
-           <section id="home" class="home">
-            <h2>Hi, I am Akil Maharjan <span>Web Developer</span></h2>
-            <img src="images/myImage.png" alt="my Profile image"/>
-           </section>
-
-        <!-- about -->
-           <section id="about" class="about">
-  <div class="about-content">
-    <p class="section-subtitle">About Me</p>
-
-    <h2>Hi, I'm Akil Maharjan</h2>
-
-    <p>
-      I'm a Frontend Developer and Frontend Instructor passionate about
-      building modern, responsive, and user-friendly web applications.
-    </p>
-
-    <p>
-      I work mainly with HTML, CSS, JavaScript, TypeScript, React, Vite,
-      Tailwind CSS, and modern frontend tools. I also have experience with
-      REST APIs, Axios, TanStack Query, Zustand, Python, Django, and PostgreSQL.
-    </p>
-
-    <p>
-      I'm currently focused on building <strong>Orbitchat</strong>, a SaaS
-      chatbot and customer communication platform, while continuously
-      improving my skills in full-stack development, APIs, automation, and
-      third-party integrations.
-    </p>
-
-    <p>
-      I also enjoy teaching frontend development and helping beginners
-      understand web technologies through practical examples and projects.
-    </p>
-
-    <a href="#contact" class="btn">Let's Connect</a>
-  </div>
-   <img src="images/myImage.png" alt="my Profile image"/>
-</section>
-     
-               <!-- projects -->
-  <section id="projects" class="projects">
-       <h2>My Projects</h2>
-       <div class="projects-container">
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 1" />
-           <h3>Project 1</h3>
-           <p>Description of Project 1</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 2" />
-           <h3>Project 2</h3>
-           <p>Description of Project 2</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 3" />
-           <h3>Project 3</h3>
-           <p>Description of Project 3</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 4" />
-           <h3>Project 3</h3>
-           <p>Description of Project 4</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 5" />
-           <h3>Project 3</h3>
-           <p>Description of Project 5</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 1" />
-           <h3>Project 1</h3>
-           <p>Description of Project 1</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 2" />
-           <h3>Project 2</h3>
-           <p>Description of Project 2</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 3" />
-           <h3>Project 3</h3>
-           <p>Description of Project 3</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 4" />
-           <h3>Project 3</h3>
-           <p>Description of Project 4</p>
-         </div>
-         <div class="project-card">
-           <img src="images/calculator.png" alt="Project 5" />
-           <h3>Project 3</h3>
-           <p>Description of Project 5</p>
-         </div>
-       </div>
-  </section>
-
-                <!-- skills  -->
-   <section id="skills" class="skills">
-    <h2> My Skills</h2>
-     <div class="skill-container">
-      <div class="skill-card">
-        <h2>HTML</h2>
-        <img src="images/html.png" alt="html image" />
-        </div>
-      <div class="skill-card">
-        <h2>CSS</h2>
-        <img src="images/css.png" alt="css image" />
-        </div>
-      <div class="skill-card">
-        <h2>Java Script</h2>
-        <img src="images/js.png" alt="js image" />
-        </div>
-      <div class="skill-card">
-        <h2>Tailwind</h2>
-        <img src="images/tailwind.png" alt="tailwind image" />
-        </div>
-      <div class="skill-card">
-        <h2>React</h2>
-        <img src="images/react.png" alt="react image" />
-        </div>
-     </div>
-        
-   </section>
-
-
-
-                     <!-- contact  -->
-       <section id="contact" class="contact">
-         <form novalidate>
-          <h2>Contact Me</h2>
-      <fieldset>
-        
-
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            minlength="3"
-            maxlength="20"
-            placeholder="Enter your full name"
-          />
-        </div>
-
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="name@example.com"
-          />
-        </div>
-
-        <div class="field">
-          <label for="age">Age</label>
-          <input type="number" id="age" name="age" min="1" max="100" />
-        </div>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>My portfolio</title>
+  </head>
+  <body>
+    <main>
+      <!-- header -->
+      <header class="w-[100%] bg-white flex items-center justify-between shadow-lg shadow-black">
        
-
-        <div class="actions">
-          <button type="reset">Reset</button>
-          <button type="submit">Submit</button>
+        <div class="logo">
+          <img src="images/Portfolio.png" alt="portfolio image" />
         </div>
-      </fieldset>
-    </form>
-       </section>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a class="rounded-[8px] bg-black text-white px-[10px] hover:bg-blue-500 py-[5px]" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="buttons">
+          <button class="login button">Login</button>
+          <button class="download button">Downlaod CV</button>
+        </div>
+      </header>
 
-       <footer class="footer">
+      <!-- home -->
+      <section id="home" class="home">
+        <h2>Hi, I am Akil Maharjan <span>Web Developer</span></h2>
+        <img src="images/myImage.png" alt="my Profile image" />
+      </section>
+
+      <!-- about -->
+      <section id="about" class="about">
+        <div class="about-content">
+          <p class="section-subtitle">About Me</p>
+
+          <h2>Hi, I'm Akil Maharjan</h2>
+
+          <p>
+            I'm a Frontend Developer and Frontend Instructor passionate about
+            building modern, responsive, and user-friendly web applications.
+          </p>
+
+          <p>
+            I work mainly with HTML, CSS, JavaScript, TypeScript, React, Vite,
+            Tailwind CSS, and modern frontend tools. I also have experience with
+            REST APIs, Axios, TanStack Query, Zustand, Python, Django, and
+            PostgreSQL.
+          </p>
+
+          <p>
+            I'm currently focused on building <strong>Orbitchat</strong>, a SaaS
+            chatbot and customer communication platform, while continuously
+            improving my skills in full-stack development, APIs, automation, and
+            third-party integrations.
+          </p>
+
+          <p>
+            I also enjoy teaching frontend development and helping beginners
+            understand web technologies through practical examples and projects.
+          </p>
+
+          <a href="#contact" class="btn">Let's Connect</a>
+        </div>
+        <img src="images/myImage.png" alt="my Profile image" />
+      </section>
+
+      <!-- projects -->
+      <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 1" />
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 2" />
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 3" />
+            <h3>Project 3</h3>
+            <p>Description of Project 3</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 4" />
+            <h3>Project 3</h3>
+            <p>Description of Project 4</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 5" />
+            <h3>Project 3</h3>
+            <p>Description of Project 5</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 1" />
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 2" />
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 3" />
+            <h3>Project 3</h3>
+            <p>Description of Project 3</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 4" />
+            <h3>Project 3</h3>
+            <p>Description of Project 4</p>
+          </div>
+          <div class="project-card">
+            <img src="images/calculator.png" alt="Project 5" />
+            <h3>Project 3</h3>
+            <p>Description of Project 5</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- skills  -->
+      <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skill-container">
+          <div class="skill-card">
+            <h2>HTML</h2>
+            <img src="images/html.png" alt="html image" />
+          </div>
+          <div class="skill-card">
+            <h2>CSS</h2>
+            <img src="images/css.png" alt="css image" />
+          </div>
+          <div class="skill-card">
+            <h2>Java Script</h2>
+            <img src="images/js.png" alt="js image" />
+          </div>
+          <div class="skill-card">
+            <h2>Tailwind</h2>
+            <img src="images/tailwind.png" alt="tailwind image" />
+          </div>
+          <div class="skill-card">
+            <h2>React</h2>
+            <img src="images/react.png" alt="react image" />
+          </div>
+        </div>
+      </section>
+
+      <!-- contact  -->
+      <section id="contact" class="contact">
+        <form novalidate>
+          <h2>Contact Me</h2>
+          <fieldset>
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                minlength="3"
+                maxlength="20"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+              />
+            </div>
+
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" min="1" max="100" />
+            </div>
+
+            <div class="actions">
+              <button type="reset">Reset</button>
+              <button type="submit">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+         
+      <!-- footer -->
+      <footer class="footer">
         <p>&copy; 2026 Akil Maharjan. All rights reserved.</p>
-       </footer>
-      
-      </main>
-</body>
+      </footer>
+    </main>
+  </body>
+  <script src="script.js"  >
+    
+  </script>
 </html>
