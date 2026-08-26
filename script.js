@@ -142,20 +142,26 @@
 //    }
 //    console.log(a("Akil"));
 
-function Operations(a,b, operator){
-    switch(operator)
-    {
-        case "+":
-            return a + b;
-        case "-":
-            return a - b;
-        case "*":
-            return a * b;
-        case "/":
-            return a / b;
-        default:
-            return "Invalid operator";
-    }
-}
+// function Operations(a,b, operator){
+//     switch(operator)
+//     {
+//         case "+":
+//             return a + b;
+//         case "-":
+//             return a - b;
+//         case "*":
+//             return a * b;
+//         case "/":
+//             return a / b;
+//         default:
+//             return "Invalid operator";
+//     }
+// }
 
-console.log(Operations(2, 0, "/"))
+// console.log(Operations(2, 0, "/"))
+
+
+
+
+
+
