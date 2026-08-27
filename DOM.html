@@ -1,44 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-  <div  id="container">
-      <h1>To-DO list</h1>
-      <div style="display: flex;
-                     align-items: center;
-                     gap: 10px;">
-      <input type="text" placeholder="Add a new task">
-      <ul>
-        
-      </ul>
-      <button onclick="AddTask()">Add Task</button>
+  </head>
+  <style>
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    h1 {
+      font-size: 268px;
+      font-family: monospace;
+      font-weight: bold;
+      color: gray;
+    }
+    .button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+  <body>
+    <div class="counter">
+      <div class="buttons counter">
+        <button  id="decrement" class="button" onclick="Decrement()">-</button>
+        <h1 id="counter">0</h1>
+        <button id="increment" class="button" onclick="Increment()">+</button>
       </div>
-    
+      <button id="reset" class="button" onclick="Reset()">Reset</button>
+    </div>
+  </body>
 
-  </div>
-</body>
-
-<script>
-    
-      const input = document.querySelector('input');
-      const ul = document.querySelector('ul');
-
-      function AddTask(){
-        
-          const li = document.createElement('li');
-          li.textContent = input.value;
-          localStorage.setItem('task',input.value);
-          ul.appendChild(li);
-          input.value = '';
-          const del = document.createElement('button');
-          del.textContent = 'Delete';
-          li.appendChild(del);
+  <script>
+    let count = 0;
+    const counter = document.getElementById("counter");
+    const decrement = document.getElementById("decrement");
+    const increment = document.getElementById("increment");
+    document.body.addEventListener("keydown", function (e) {
+        if(e.key === "-"){
+            Decrement()
+        }
+    })
+    document.body.addEventListener("keydown", function (e) {
+        console.log(e.key)
+        if(e.key === "+"){
+            Increment()
+        }
+    })
+    function Increment() {
+      count++;
+      counter.textContent = count;
+    }
+    function Decrement() {
+      count--;
+      if (count < 0) {
+        count = 0;
       }
-    
-     
-</script>
+      counter.textContent = count;
+    }
+    function Reset(){
+        count = 0;
+        counter.textContent = count
+    }
+  </script>
 </html>
