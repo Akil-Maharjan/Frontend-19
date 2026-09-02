@@ -18,6 +18,14 @@ html{
 .logo img {
   height: 100px;
 }
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 
 .nav-list {
   display: flex;
@@ -395,4 +403,25 @@ button[type="reset"]:hover {
  background-color: white;
  color: black;
  padding: 10px 50px;
+}
+
+@media (max-width:768px){
+    .hamburger {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+    }
+    .buttons{
+      
+        display: none;
+    }
+  
 }

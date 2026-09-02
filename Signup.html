@@ -196,7 +196,7 @@
   </head>
 
   <body>
-    <form id="registrationForm">
+    <form id="form">
       <fieldset>
         <legend>Registration Form</legend>
 
@@ -208,8 +208,6 @@
             type="text"
             id="name"
             name="name"
-            minlength="3"
-            maxlength="20"
             placeholder="Enter your full name"
           />
         </div>
@@ -225,126 +223,17 @@
         </div>
 
         <div class="field">
-          <label for="age">Age</label>
-          <input type="number" id="age" name="age" min="1" max="100" />
-        </div>
-
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
-            placeholder="0000-000-000"
-          />
-        </div>
-
-        <div class="field">
-          <label for="date">Date of Birth</label>
-          <input type="date" id="date" name="date" />
-        </div>
-
-        <div class="section-title">Account Details</div>
-
-        <div class="field">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" />
         </div>
 
-        <div class="section-title">Address</div>
-
-        <div class="field">
-          <label for="address">Address</label>
-          <textarea id="address" name="address"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="country">Country</label>
-          <select id="country" name="country">
-            <option value="">Select a country</option>
-            <option value="nepal">Nepal</option>
-            <option value="india">India</option>
-            <option value="usa">USA</option>
-            <option value="uk">UK</option>
-          </select>
-        </div>
-
-        <div class="section-title">Preferences</div>
-
-        <div class="field">
-          <label>Gender</label>
-          <div class="option-group">
-            <div class="option">
-              <input type="radio" id="male" name="gender" value="male" />
-              <label for="male">Male</label>
-            </div>
-            <div class="option">
-              <input type="radio" id="female" name="gender" value="female" />
-              <label for="female">Female</label>
-            </div>
-            <div class="option">
-              <input type="radio" id="other" name="gender" value="other" />
-              <label for="other">Other</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Hobbies</label>
-          <div class="option-group">
-            <div class="option">
-              <input
-                type="checkbox"
-                id="reading"
-                name="hobby"
-                value="reading"
-              />
-              <label for="reading">Reading</label>
-            </div>
-            <div class="option">
-              <input
-                type="checkbox"
-                id="traveling"
-                name="hobby"
-                value="traveling"
-              />
-              <label for="traveling">Traveling</label>
-            </div>
-            <div class="option">
-              <input type="checkbox" id="sports" name="hobby" value="Coding" />
-              <label for="sports">Coding</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="color">Favorite Color</label>
-          <input type="color" id="color" name="color" value="#2563eb" />
-        </div>
-
-        <div class="field">
-          <label for="range">Experience Level</label>
-          <input
-            type="range"
-            id="range"
-            name="range"
-            value="10"
-            min="0"
-            max="100"
-          />
-        </div>
-
-        <div class="field">
-          <label for="file">Upload CV</label>
-          <input type="file" id="file" name="file" />
-          <div class="hint">PDF or DOCX, up to 5MB</div>
-        </div>
+        
 
         <div class="actions">
-          <button type="reset">Reset</button>
-          <button id="submit" type="submit">Submit</button>
+          
+          <button id="submit" type="submit">Sign up</button>
         </div>
+        <a href="Login.html">Already have an account? Login</a>
       </fieldset>
     </form>
   </body>
@@ -352,6 +241,34 @@
 
    <script>
 
+  const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    
+
+    const form = document.getElementById('form');
+    
+     form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const user = {
+            name: name.value,
+            email: email.value,
+            password: password.value
+        }
+        if(user.name == "" || user.email == "" || user.password == "") {
+            alert("Please fill in all fields");
+        } 
+        else if(user.name.length < 3 || user.name.length > 20) {
+            alert("Name must be between 3 and 20 characters");
+        }
+        else if(user.password.length < 6) {
+            alert("Password must be at least 6 characters");
+        }
+else{
+          
+        console.log(`Signup successful for user: ${user.name}, email: ${user.email}, password: ${user.password}`);
+     }
+    })
 
     
    </script>

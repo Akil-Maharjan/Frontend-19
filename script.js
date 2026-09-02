@@ -171,37 +171,37 @@
 
 
 
-const students = [
-    {
-        name: "John",
-        age: 24,
-        isStudent: true,
-        address : {
-          city: "New York",
-          state: "NY"
-        }
-    },
-    {
-        name: "Jane",
-        age: 25,
-        isStudent: false,
-        address : {
-          city: "Kathmandu",
-          state: "Bagmati"
-        }
-    },
-    {
-        name: "Bob",
-        age: 26,
-        isStudent: false,
-        address : {
-          city: "Kathmandu",
-          state: "Bagmati"
-        }
-    }
-]
+// const students = [
+//     {
+//         name: "John",
+//         age: 24,
+//         isStudent: true,
+//         address : {
+//           city: "New York",
+//           state: "NY"
+//         }
+//     },
+//     {
+//         name: "Jane",
+//         age: 25,
+//         isStudent: false,
+//         address : {
+//           city: "Kathmandu",
+//           state: "Bagmati"
+//         }
+//     },
+//     {
+//         name: "Bob",
+//         age: 26,
+//         isStudent: false,
+//         address : {
+//           city: "Kathmandu",
+//           state: "Bagmati"
+//         }
+//     }
+// ]
 
-let sortedAge = students.sort((a, b) => b.age - a.age)
- const mapped = sortedAge.map(x =>  x.name)
+// let sortedAge = students.sort((a, b) => b.age - a.age)
+//  const mapped = sortedAge.map(x =>  x.name)
 
- console.log(mapped)
+//  console.log(mapped)

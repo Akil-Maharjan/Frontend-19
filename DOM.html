@@ -1,82 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    .counter {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+    #parent{
+        width: 500px;
+        height: 500px;
+        border: 2px solid black;
+        position: relative;    
     }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
+    #child1{
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
     }
-    h1 {
-      font-size: 268px;
-      font-family: monospace;
-      font-weight: bold;
-      color: gray;
-    }
-    .button {
-      background-color: green;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .button:hover {
-      background-color: darkgreen;
-    }
-  </style>
-  <body>
-    <div class="counter">
-      <div class="buttons counter">
-        <button  id="decrement" class="button" onclick="Decrement()">-</button>
-        <h1 id="counter">0</h1>
-        <button id="increment" class="button" onclick="Increment()">+</button>
-      </div>
-      <button id="reset" class="button" onclick="Reset()">Reset</button>
-    </div>
-  </body>
-
-  <script>
-    let count = 0;
-    const counter = document.getElementById("counter");
-    const decrement = document.getElementById("decrement");
-    const increment = document.getElementById("increment");
-    document.body.addEventListener("keydown", function (e) {
-        if(e.key === "-"){
-            Decrement()
-        }
-    })
-    document.body.addEventListener("keydown", function (e) {
-        console.log(e.key)
-        if(e.key === "+"){
-            Increment()
-        }
-    })
-    function Increment() {
-      count++;
-      counter.textContent = count;
-    }
-    function Decrement() {
-      count--;
-      if (count < 0) {
-        count = 0;
-      }
-      counter.textContent = count;
-    }
-    function Reset(){
-        count = 0;
-        counter.textContent = count
-    }
-  </script>
-</html>
+</style>
+<body>
+     <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About </a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contacts</a></li>
+        <p>Home</p>
+      </ul>
+     </nav>
+</body>
+     <script>
+          const list = document.querySelector('ul');
+            list.addEventListener('click',function(e){
+              const item = e.target.closest('li');
+              if(!item) return
+              console.log(item.textContent)
+            })
+     </script>
+</script>
