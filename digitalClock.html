@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex items-center h-screen justify-center">
+      <div
+        class="flex w-screen p-5 flex-col items-center justify-center bg-black text-white gap-2"
+      >
+        <h1 class="uppercase mb-10 text-3xl">digital clock</h1>
+        <div class="flex items-center gap-4">
+        <p id="time" class="text-7xl ">
+          00:00:00 
+        </p>
+        
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const time = document.getElementById("time");
+    const ampm = document.getElementById("ampm");
+    function updateTime() {
+      const date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+
+      
+      const period = hours >= 12 ? "pm" : "am";
+
+      hours = hours % 12 || 12;
+      hours = hours < 10 ?  hours : hours;
+      minutes = minutes < 10 ?  minutes : minutes;
+      seconds = seconds < 10 ?  seconds : seconds;
+     hours = String(hours).padStart(2, "0");
+      minutes= String(minutes).padStart(2, "0");
+      seconds = String(seconds).padStart(2, "0");
+      time.textContent = `${hours}:${minutes}:${seconds} ${period}`;
+     
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</html>

@@ -4,54 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-      <div class="container">
-        <h1>Todo List</h1>
-        <input type="text" id="todoInput" placeholder="Enter a task">
-        <button id="addButton">Add</button>
-        <ul id="todoList"></ul>
-      </div>
+    <div class="flex flex-col  h-screen   items-center  justify-center"> 
+        <div>
+         <h1>Todo List</h1>
+         </div>
+         <div class="flex items-center w-[300px] justify-center gap-2">
+        <input id="input" type="text" placeholder="Add a task" class="w-[80%] h-[40px] border border-gray-400 rounded-md px-2">
+        <button id="addButton" class="w-[20%] cursor-pointer h-[40px] bg-blue-500 text-white rounded-md ml-2">Add</button>
+         </div>
+        <div >
+       <ul id="list" class="flex flex-col w-[300px] items-center justify-center">
+
+    </ul>
+    </div>
+   
+    </div>
+   
 </body>
 
 <script>
-    let tasks = JSON.parse(localStorage.getItem("todo")) || [];
 
-    const todoInput = document.getElementById("todoInput");
-    const addButton = document.getElementById("addButton");
-    const todoList = document.getElementById("todoList");
+   const input = document.getElementById('input');
+   const addButton = document.getElementById('addButton');
+   const list = document.getElementById('list');
+   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-addButton.addEventListener("click", function() {
-  const task = todoInput.value;
-  if (task) {
-    tasks.push({
-        id: tasks.length + 1,
-        text: task,
-        time: new Date().toLocaleString()
-    });
-    localStorage.setItem("todo", JSON.stringify(tasks));
-    todoInput.value = "";
-    renderTask();
-  }
-})
+   function showList(){
+      list.innerHTML = '';
+      tasks.forEach((task, index) => {
+             list.innerHTML += `<li class="flex items-center justify-between w-[100%] border border-gray-400 rounded-md gap-2 px-2 py-1 my-1">
+             <span class="flex-1">${task}</span>
+             <button class="bg-red-500 flex  text-white rounded-md  cursor-pointer px-2 py-1" onclick="deleteTask(${index})">Delete</button>
+             <button class="bg-red-500 text-white rounded-md cursor-pointer px-2 py-1" onclick="updateTask(${index})">Edit</button>
+             </li>`
+      });
+   }
+   function addTask(){
+      list.innerHTML = '';
+      const addedTaks = {
+        id: Date.now(),
+        task: input.value
 
-   function renderTask(){
-       todoList.innerHTML = "";
-        tasks.forEach((item)=>{
-            todoList.innerHTML += `
-            <li>
-                <span>${item.text}</span>
-                <span>${item.time}</span>
-                <button onclick="deleteTask(${item.id})">Delete</button>
-            </li>
-            `
-        })
+      }
+      if(input.value === ''){
+         alert('Please enter a task');
+      }
+      else{
+      tasks.push(addedTaks.task);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      input.value = '';
+      }
+      showList();
+   }
+   function deleteTask(index){
+      tasks.splice(index, 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      showList();
    }
 
-   function deleteTask(id){
-       tasks = tasks.filter((task) => task.id !== id);
-       localStorage.setItem("todo", JSON.stringify(tasks));
-       renderTask();
+   function updateTask(index){
+       input.value = tasks[index];
+       const updatedTask = input.value;
+       tasks[index] = updatedTask;
+       tasks.splice(index, 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      showList();
    }
+   showList();
+   addButton.addEventListener('click', addTask);
 </script>
 </html>
