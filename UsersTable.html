@@ -32,7 +32,6 @@
         <div class="flex justify-center items-center gap-2">
              <button class="bg-blue-500 px-4 py-2 border-none rounded-md cursor-pointer" id="cancel" type="button">Cancel</button>
         <button class="bg-green-500 px-4 py-2 border-none rounded-md cursor-pointer" type="submit">Submit</button>
-       
         </div>
     </form>
     </div>
@@ -44,13 +43,14 @@
                        </div>
                     <table class="w-full border">
         <thead>
-            <tr class="border-b">
-                <th class="border-r">ID</th>
+            <tr class="border">
+                <th class="border-r w-20">ID</th>
                 <th class="border-r">Name</th>
                 <th class="border-r">Username</th>
                 <th class="border-r">Email</th>
                 <th class="border-r">Phone</th>
                 <th class="border-r">Webiste</th>
+                <th class="border-r">Action</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -70,17 +70,24 @@
     const email = document.getElementById("email");
     const phone = document.getElementById("phone");
     const website = document.getElementById("website");
+    let editing = null;
 
     function renderUser(){
        tbody.innerHTML = "";
        users.forEach((user)=> {
-            tbody.innerHTML += `<tr>
+            tbody.innerHTML += `<tr class="border text-center">
             <td class="border-r">${user.id}</td>
             <td class="border-r">${user.name}</td>
             <td class="border-r">${user.username}</td>
             <td class="border-r">${user.email}</td>
             <td class="border-r">${user.phone}</td>
             <td class="border-r">${user.website}</td>
+            <td class="border-r ">
+                <div class="flex justify-center items-center gap-2 py-2">
+                <button class="bg-blue-500 px-4 py-1 border-none rounded-md cursor-pointer" onclick="editUser(${user.id})">Edit</button>
+                <button class="bg-red-500 px-4 py-1 border-none rounded-md cursor-pointer" onclick="deleteUser(${user.id})">Delete</button>
+               </div>
+                </td>
             </tr>`
        })
     }
@@ -113,7 +120,7 @@
          const  res = await fetch("https://jsonplaceholder.typicode.com/users", {
              method: "POST",
              headers: {
-                 "Content-Type": "application/json"
+                 "Content-Type": "application/json",
              },
              body: JSON.stringify(user)
          })
@@ -122,11 +129,52 @@
          renderUser();
          modal.classList.add("hidden");
      }
-
+         
+     function editUser(id){
+        const user = users.find((user) => user.id === id);
+        name.value = user.name;
+        username.value = user.username;
+        email.value = user.email;
+        phone.value = user.phone;
+        website.value = user.website;
+        editing = id;
+        modal.classList.remove("hidden");
+     }
+   async function updateUser(){
+    const user = userData();
+    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${editing}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user)
+    })
+    const data = await res.json();
+    const index = users.findIndex((user) => user.id === editing);
+    users[index] = data;
+    renderUser();
+    modal.classList.add("hidden");
+    editing = null;
+   }
+   async function deleteUser(id){
+    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+        method: "DELETE"
+    })
+    users = users.filter((user) => user.id !== id);
+    renderUser();
+   }
+     
+     
     const form = document.getElementById("form");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        addUser(userData());
+        if(editing){
+            updateUser(editing);
+        }
+        else{
+            addUser(userData());
+        }   
+        
     })
     getUsers();
 </script>
