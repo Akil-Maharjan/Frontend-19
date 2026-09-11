@@ -49,7 +49,7 @@ let products = [];
 
        async function getProdcuts(){
         try{
-        const res = await fetch("https://fakestoreapi.com/products");
+        const res = await fetch("https://fakestoreapi.co/products");
         const data = await res.json();
         products = data;
         renderProducts();
